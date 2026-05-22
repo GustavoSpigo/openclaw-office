@@ -6,6 +6,12 @@ import enConsole from "./locales/en/console.json";
 import enLayout from "./locales/en/layout.json";
 import enOffice from "./locales/en/office.json";
 import enPanels from "./locales/en/panels.json";
+import ptBrChat from "./locales/pt-BR/chat.json";
+import ptBrCommon from "./locales/pt-BR/common.json";
+import ptBrConsole from "./locales/pt-BR/console.json";
+import ptBrLayout from "./locales/pt-BR/layout.json";
+import ptBrOffice from "./locales/pt-BR/office.json";
+import ptBrPanels from "./locales/pt-BR/panels.json";
 import zhChat from "./locales/zh/chat.json";
 import zhCommon from "./locales/zh/common.json";
 import zhConsole from "./locales/zh/console.json";
@@ -31,6 +37,14 @@ if (!i18n.isInitialized) {
         panels: enPanels,
         chat: enChat,
         console: enConsole,
+      },
+      "pt-BR": {
+        common: ptBrCommon,
+        layout: ptBrLayout,
+        office: ptBrOffice,
+        panels: ptBrPanels,
+        chat: ptBrChat,
+        console: ptBrConsole,
       },
     },
     lng: "zh",

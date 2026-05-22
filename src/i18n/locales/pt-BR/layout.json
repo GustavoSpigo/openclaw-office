@@ -1,0 +1,61 @@
+{
+  "topbar": {
+    "activeCount": "Ativos <strong>{{active}}/{{total}}</strong>",
+    "tokens": "Tokens <strong>{{count}}</strong>",
+    "activeCountText": "Ativos",
+    "tokensLabel": "Tokens",
+    "console": "Console",
+    "office": "Escritório",
+    "chat": "Chat",
+    "workbench": "Workbench de skills",
+    "navigation": "Navegação principal",
+    "pageTitles": {
+      "chat": "Chat",
+      "dashboard": "Painel",
+      "channels": "Canais",
+      "skills": "Skills",
+      "cron": "Tarefas agendadas",
+      "agents": "Gestão de Agents",
+      "settings": "Configurações",
+      "fallback": "Console"
+    },
+    "theme": {
+      "switchToDark": "Alternar para o tema escuro",
+      "switchToLight": "Alternar para o tema claro"
+    },
+    "language": {
+      "switchToEn": "Alternar para inglês",
+      "switchToZh": "Alternar para chinês",
+      "switchToPtBr": "Alternar para português brasileiro"
+    }
+  },
+  "sidebar": {
+    "agents": "Agents",
+    "expand": "Expandir barra lateral",
+    "collapse": "Recolher barra lateral",
+    "closeSidebar": "Fechar barra lateral",
+    "expandSidebar": "Expandir barra lateral",
+    "collapseSidebar": "Recolher barra lateral",
+    "metricsTitle": "Visão geral / tendência",
+    "agentList": "Lista de Agents",
+    "subAgents": "Sub-Agents",
+    "agentDetail": "Detalhes do Agent",
+    "eventTimeline": "Linha do tempo de eventos",
+    "searchPlaceholder": "Buscar Agent...",
+    "filters": {
+      "all": "Todos",
+      "active": "Ativos",
+      "idle": "Ociosos",
+      "error": "Erro"
+    }
+  },
+  "consoleNav": {
+    "dashboard": "Painel",
+    "agents": "Agents",
+    "channels": "Canais",
+    "skills": "Skills",
+    "skillWorkbench": "Workbench de skills",
+    "cron": "Tarefas agendadas",
+    "settings": "Configurações"
+  }
+}

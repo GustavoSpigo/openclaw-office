@@ -25,7 +25,8 @@
     },
     "language": {
       "switchToEn": "Switch to English",
-      "switchToZh": "Switch to Chinese"
+      "switchToZh": "Switch to Chinese",
+      "switchToPtBr": "Switch to Portuguese (Brazil)"
     }
   },
   "sidebar": {

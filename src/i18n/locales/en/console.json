@@ -299,7 +299,8 @@
       "themeSystem": "System",
       "language": "Language",
       "langZh": "中文",
-      "langEn": "English"
+      "langEn": "English",
+      "langPtBr": "Portuguese (Brazil)"
     },
     "providers": {
       "title": "AI Providers",

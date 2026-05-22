@@ -23,6 +23,14 @@ describe("LanguageSwitcher", () => {
     expect(screen.getByText("EN")).toBeInTheDocument();
   });
 
+  it("shows PT-BR when current language is pt-BR", async () => {
+    await act(async () => {
+      await i18n.changeLanguage("pt-BR");
+    });
+    render(<LanguageSwitcher />);
+    expect(screen.getByText("PT-BR")).toBeInTheDocument();
+  });
+
   it("switches to en on click when current is zh", async () => {
     render(<LanguageSwitcher />);
     await act(async () => {
@@ -31,13 +39,24 @@ describe("LanguageSwitcher", () => {
     expect(i18n.language).toBe("en");
   });
 
-  it("switches to zh on click when current is en", async () => {
+  it("switches to pt-BR on click when current is en", async () => {
     await act(async () => {
       await i18n.changeLanguage("en");
     });
     render(<LanguageSwitcher />);
     await act(async () => {
       fireEvent.click(screen.getByText("EN"));
+    });
+    expect(i18n.language).toBe("pt-BR");
+  });
+
+  it("switches to zh on click when current is pt-BR", async () => {
+    await act(async () => {
+      await i18n.changeLanguage("pt-BR");
+    });
+    render(<LanguageSwitcher />);
+    await act(async () => {
+      fireEvent.click(screen.getByText("PT-BR"));
     });
     expect(i18n.language).toBe("zh");
   });
@@ -54,6 +73,15 @@ describe("LanguageSwitcher", () => {
     });
     render(<LanguageSwitcher />);
     const btn = screen.getByRole("button");
-    expect(btn.getAttribute("aria-label")).toBe("Switch to Chinese");
+    expect(btn.getAttribute("aria-label")).toBe("Switch to Portuguese (Brazil)");
+  });
+
+  it("has correct aria-label in pt-BR", async () => {
+    await act(async () => {
+      await i18n.changeLanguage("pt-BR");
+    });
+    render(<LanguageSwitcher />);
+    const btn = screen.getByRole("button");
+    expect(btn.getAttribute("aria-label")).toBe("Alternar para chinês");
   });
 });

@@ -1,0 +1,785 @@
+{
+  "dashboard": {
+    "title": "Painel",
+    "description": "Visão geral do sistema: status do Gateway, conexões de canais e situação das skills",
+    "loading": "Carregando dados do painel...",
+    "stats": {
+      "channels": "Canais conectados",
+      "skills": "Skills ativas",
+      "usage": "Uso do provedor",
+      "uptime": "Tempo de atividade",
+      "uptimeOnline": "Online"
+    },
+    "alerts": {
+      "gatewayDisconnected": "Gateway desconectado, os dados podem não estar atualizados",
+      "channelErrors": "{{count}} canal(is) com erro"
+    },
+    "connectionGuide": {
+      "title": "Não foi possível conectar ao Gateway",
+      "subtitle": "Verifique os itens abaixo",
+      "reconnecting": "Tentando reconectar...",
+      "step1": "Confirme que o OpenClaw Gateway está em execução (porta padrão 18789)",
+      "step2": "Verifique se o token do Gateway está configurado (use a flag --token ou o CLI openclaw para detectar automaticamente)",
+      "step3": "Se o Gateway estiver em outro host, use --gateway ws://host:port",
+      "cmdComment": "Exemplo: iniciar com token"
+    },
+    "quickNav": {
+      "title": "Navegação rápida"
+    },
+    "channelOverview": {
+      "title": "Canais conectados",
+      "empty": "Nenhum canal conectado"
+    },
+    "skillOverview": {
+      "title": "Skills ativas",
+      "empty": "Nenhuma skill habilitada"
+    }
+  },
+  "channels": {
+    "title": "Canais",
+    "description": "Gerencie canais de mensagem: Telegram, Discord, WhatsApp etc.",
+    "stats": {
+      "total": "Total",
+      "connected": "Conectados",
+      "errors": "Erros"
+    },
+    "card": {
+      "lastConnected": "Última conexão: {{time}}",
+      "details": "Detalhes",
+      "logout": "Sair"
+    },
+    "empty": {
+      "title": "Nenhum canal configurado",
+      "description": "Selecione abaixo um tipo de canal para começar"
+    },
+    "available": {
+      "title": "Tipos de canal disponíveis",
+      "configured": "Configurado",
+      "add": "Adicionar"
+    },
+    "types": {
+      "telegram": "Telegram",
+      "discord": "Discord",
+      "whatsapp": "WhatsApp",
+      "signal": "Signal",
+      "feishu": "Feishu",
+      "imessage": "iMessage",
+      "matrix": "Matrix",
+      "line": "LINE",
+      "msteams": "MS Teams",
+      "googlechat": "Google Chat",
+      "mattermost": "Mattermost"
+    },
+    "fields": {
+      "botToken": "Bot Token",
+      "applicationId": "Application ID",
+      "phoneNumber": "Número de telefone",
+      "appId": "App ID",
+      "appSecret": "App Secret",
+      "homeserver": "URL do Homeserver",
+      "accessToken": "Access Token",
+      "channelAccessToken": "Channel Access Token",
+      "channelSecret": "Channel Secret",
+      "appPassword": "App Password",
+      "serviceAccount": "JSON da Service Account",
+      "serverUrl": "Server URL"
+    },
+    "placeholders": {
+      "botToken": "Digite o Bot Token",
+      "applicationId": "Digite o Application ID",
+      "phoneNumber": "+55...",
+      "appId": "Digite o App ID",
+      "appSecret": "Digite o App Secret",
+      "homeserver": "https://matrix.org",
+      "accessToken": "Digite o Access Token",
+      "channelAccessToken": "Digite o Channel Access Token",
+      "channelSecret": "Digite o Channel Secret",
+      "appPassword": "Digite o App Password",
+      "serviceAccount": "Cole o JSON da Service Account",
+      "serverUrl": "https://mattermost.example.com"
+    },
+    "configDialog": {
+      "required": "Este campo é obrigatório",
+      "cancel": "Cancelar",
+      "save": "Salvar"
+    },
+    "qr": {
+      "description": "Escaneie o QR code com o app do WhatsApp no celular para parear",
+      "startPairing": "Iniciar pareamento",
+      "loading": "Gerando QR code...",
+      "scanPrompt": "Escaneie o QR code com seu celular",
+      "waitingScan": "Aguardando leitura...",
+      "success": "Pareado com sucesso!",
+      "error": "Falha no pareamento"
+    },
+    "logout": {
+      "title": "Sair do canal",
+      "description": "Tem certeza de que deseja sair de \"{{name}}\"? Será necessário parear novamente."
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Gerencie skills e plugins: instalar, ativar/desativar, configurar",
+    "tabs": {
+      "installed": "Instaladas",
+      "marketplace": "Marketplace"
+    },
+    "installed": {
+      "searchPlaceholder": "Buscar skills instaladas..."
+    },
+    "filters": {
+      "all": "Todas ({{count}})",
+      "built-in": "Integradas ({{count}})",
+      "marketplace": "Marketplace ({{count}})"
+    },
+    "source": {
+      "builtIn": "Integrada",
+      "marketplace": "Marketplace"
+    },
+    "card": {
+      "configure": "Configurar",
+      "install": "Instalar",
+      "installing": "Instalando...",
+      "missingDeps": "Dependências ausentes",
+      "coreProtected": "Skill central não pode ser desativada"
+    },
+    "detail": {
+      "info": "Informações",
+      "source": "Origem",
+      "version": "Versão",
+      "author": "Autor",
+      "primaryEnv": "Variável de ambiente principal",
+      "homepage": "Página inicial",
+      "requirements": "Requisitos",
+      "config": "Configuração",
+      "configChecks": "Verificações de configuração",
+      "noConfig": "Esta skill não precisa de configuração",
+      "apiKeyPlaceholder": "Digite a API Key",
+      "envVars": "Variáveis de ambiente",
+      "addVariable": "Adicionar variável",
+      "noEnvVars": "Nenhuma variável de ambiente configurada",
+      "keyPlaceholder": "Chave",
+      "valuePlaceholder": "Valor",
+      "enabled": "Ativada",
+      "disabled": "Desativada",
+      "saving": "Salvando..."
+    },
+    "install": {
+      "title": "Instalar {{name}}"
+    },
+    "marketplace": {
+      "securityNote": "Revise a origem da skill, a página inicial e os requisitos de dependência antes de instalar. Esta visão de marketplace web é construída a partir da lista de skills instaláveis retornada pelo Gateway.",
+      "searchPlaceholder": "Buscar skills no marketplace...",
+      "searchButton": "Buscar",
+      "emptyTitle": "Nenhuma skill no marketplace",
+      "emptyDescription": "O Gateway atual não retornou skills prontas para exibição",
+      "noResults": "Nenhuma skill no marketplace corresponde à sua busca",
+      "installed": "Instalada",
+      "version": "Versão {{version}}",
+      "author": "Autor {{author}}",
+      "learnMore": "Detalhes"
+    },
+    "toast": {
+      "enabled": "{{name}} ativada",
+      "disabled": "{{name}} desativada",
+      "toggleFailed": "Falha ao alternar a skill",
+      "installSuccess": "{{name}} instalada com sucesso",
+      "installFailed": "Falha ao instalar {{name}}",
+      "installWarning": "Aviso de instalação"
+    },
+    "empty": {
+      "title": "Nenhuma skill encontrada",
+      "description": "Tente trocar de aba ou ajustar os filtros"
+    }
+  },
+  "clawhub": {
+    "searchPlaceholder": "Buscar skills no ClawHub...",
+    "offlineNotice": "Não foi possível conectar ao ClawHub, mostrando as skills instaladas localmente",
+    "noSearchResults": "Nenhuma skill correspondente encontrada",
+    "tryDifferentQuery": "Tente palavras-chave diferentes",
+    "noSkills": "Nenhuma skill disponível",
+    "noSkillsDescription": "O ClawHub não tem skills no momento",
+    "loadMore": "Carregar mais",
+    "downloads": "downloads",
+    "stars": "stars",
+    "viewOnClawHub": "Ver no ClawHub",
+    "notFound": "Skill não encontrada",
+    "installTitle": "Instalar {{name}}",
+    "securityWarning": "Revise o código e as permissões da skill antes de instalar. Skills de terceiros podem acessar o seu sistema.",
+    "installCommand": "Execute este comando no terminal:",
+    "cancel": "Cancelar",
+    "installDone": "Já terminei a instalação"
+  },
+  "toast": {
+    "showDetail": "Ver detalhes",
+    "hideDetail": "Ocultar detalhes"
+  },
+  "commandResult": {
+    "exitCode": "Código de saída",
+    "copyAll": "Copiar tudo"
+  },
+  "restart": {
+    "pending": "Gateway reiniciando em {{seconds}}s...",
+    "disconnected": "Gateway desconectado, aguardando reinício...",
+    "reconnecting": "Reconectando...",
+    "complete": "Gateway voltou ao ar"
+  },
+  "configLifecycle": {
+    "effectiveNow": "As alterações já estão ativas.",
+    "savedHotReload": "Configuração salva. O Gateway aplicará automaticamente o recarregamento interno.",
+    "savedRestartRequired": "Configuração salva. Algumas alterações exigem reinício do Gateway para serem aplicadas completamente.",
+    "savedCliRestartRequired": "Configuração salva. Execute o comando abaixo para reiniciar o Gateway e aplicar as alterações.",
+    "applyRestarting": "Configuração salva. O Gateway reiniciará em {{seconds}}s.",
+    "disconnected": "Gateway desconectado enquanto o reinício está em andamento.",
+    "reconnecting": "Reconectando ao Gateway.",
+    "complete": "O Gateway voltou ao ar e a configuração mais recente está ativa.",
+    "copyCommand": "Copiar comando",
+    "copiedCommand": "Copiado",
+    "runtimeAgentModel": "Modelo padrão atualizado. Novas requisições usarão o novo modelo; execuções em andamento mantêm o modelo atual.",
+    "runtimeAgentModelSessionsReset": "Modelo padrão atualizado. As sessões externas existentes foram limpas, então a próxima mensagem em canais como Feishu recriará a sessão com o novo modelo.",
+    "runtimeSkill": "A configuração da skill foi atualizada e já está ativa.",
+    "runtimeCron": "As alterações da tarefa agendada já estão ativas."
+  },
+  "cron": {
+    "title": "Tarefas agendadas",
+    "description": "Gerencie tarefas agendadas: criar, editar, ativar/desativar e executar agora",
+    "stats": {
+      "total": "Total",
+      "active": "Ativas",
+      "paused": "Pausadas",
+      "failed": "Falhas"
+    },
+    "card": {
+      "lastRun": "Última execução",
+      "nextRun": "Próxima execução",
+      "runNow": "Executar agora"
+    },
+    "presets": {
+      "everyHour": "A cada hora",
+      "daily9am": "Diariamente às 9h",
+      "daily6pm": "Diariamente às 18h",
+      "weeklyMon": "Toda segunda às 9h",
+      "monthlyFirst": "No dia 1 de cada mês",
+      "every30min": "A cada 30 min"
+    },
+    "dialog": {
+      "createTitle": "Criar tarefa agendada",
+      "editTitle": "Editar tarefa agendada",
+      "name": "Nome da tarefa",
+      "namePlaceholder": "Digite o nome da tarefa",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Descrição opcional da tarefa",
+      "schedule": "Agenda",
+      "cronHelp": "Expressão cron padrão: min hora dia mês dia-semana",
+      "message": "Mensagem",
+      "messagePlaceholder": "Digite a mensagem a enviar ao Agent",
+      "required": "Este campo é obrigatório"
+    },
+    "empty": {
+      "title": "Nenhuma tarefa agendada",
+      "createFirst": "Crie sua primeira tarefa"
+    },
+    "delete": {
+      "title": "Excluir tarefa agendada",
+      "description": "Tem certeza de que deseja excluir esta tarefa agendada? Isso não pode ser desfeito."
+    },
+    "run": {
+      "title": "Executar agora",
+      "description": "Tem certeza de que deseja executar esta tarefa agendada imediatamente?"
+    }
+  },
+  "settings": {
+    "title": "Configurações",
+    "description": "Configurações do app: tema, provedor, Gateway, atualizações",
+    "appearance": {
+      "title": "Aparência",
+      "theme": "Tema",
+      "themeLight": "Claro",
+      "themeDark": "Escuro",
+      "themeSystem": "Sistema",
+      "language": "Idioma",
+      "langZh": "Chinês",
+      "langEn": "Inglês",
+      "langPtBr": "Português brasileiro"
+    },
+    "providers": {
+      "title": "Provedores de IA",
+      "description": "Gerencie configurações de provedores de modelos de IA",
+      "add": "Adicionar provedor",
+      "empty": "Nenhum provedor de IA configurado",
+      "emptyHint": "Clique no botão acima para adicionar seu primeiro provedor",
+      "apiKeyConfigured": "Configurado",
+      "apiKeyNotConfigured": "Não configurado",
+      "apiKeyRequired": "API key necessária",
+      "noApiKeyRequired": "Não precisa de chave",
+      "systemDiscovered": "Detectado pelo sistema",
+      "modelCount": "{{count}} modelo(s)",
+      "deleteTitle": "Excluir provedor",
+      "deleteDescription": "Tem certeza de que deseja excluir o provedor \"{{name}}\"? Será necessário reconfigurá-lo.",
+      "addDialog": {
+        "title": "Adicionar provedor",
+        "selectType": "Selecione o tipo de provedor",
+        "backToSelect": "Voltar à seleção de tipo",
+        "providerId": "ID do provedor",
+        "providerIdHint": "Identificador único no arquivo de configuração",
+        "baseUrl": "URL base",
+        "apiKey": "API Key",
+      "apiType": "Tipo de API",
+      "idConflict": "Esse ID de provedor já existe",
+      "cancel": "Cancelar",
+      "save": "Salvar",
+      "saveAndRestart": "Salvar e reiniciar"
+    },
+    "editDialog": {
+      "title": "Editar provedor",
+      "apiKeyPlaceholder": "Deixe vazio para manter como está",
+      "cancel": "Cancelar",
+      "save": "Salvar",
+      "saveAndRestart": "Salvar e reiniciar"
+    },
+      "models": {
+        "title": "Modelos",
+        "add": "Adicionar modelo",
+        "remove": "Remover modelo",
+        "empty": "Nenhum modelo configurado. Clique acima para adicionar um.",
+        "untitled": "Modelo sem título",
+        "id": "ID do modelo",
+        "name": "Nome de exibição",
+        "reasoning": "Raciocínio",
+        "inputTypes": "Tipos de entrada",
+        "input_text": "Texto",
+        "input_image": "Imagem",
+        "yes": "Sim",
+        "no": "Não",
+        "apiOverride": "Substituição de API",
+        "inheritProvider": "Herdar do provedor",
+        "contextWindow": "Janela de contexto",
+        "maxTokens": "Máximo de tokens de saída",
+        "cost": "Custo ($/M tokens)",
+        "costHint": "Em USD por milhão de tokens. 0 significa grátis.",
+        "cost_input": "Entrada",
+        "cost_output": "Saída",
+        "cost_cacheRead": "Leitura de cache",
+        "cost_cacheWrite": "Gravação de cache",
+        "showAdvanced": "Opções avançadas de compatibilidade",
+        "hideAdvanced": "Ocultar opções avançadas",
+        "default": "Padrão",
+        "thinkingFormat": "Formato de raciocínio",
+        "maxTokensField": "Nome do campo maxTokens",
+        "compat_supportsStore": "Suporta store/memória",
+        "compat_supportsDeveloperRole": "Suporta role de desenvolvedor",
+        "compat_supportsReasoningEffort": "Suporta esforço de raciocínio",
+        "compat_supportsUsageInStreaming": "Usage no streaming",
+        "compat_supportsStrictMode": "Suporta modo estrito",
+        "compat_requiresToolResultName": "Resultado da ferramenta precisa de nome",
+        "compat_requiresAssistantAfterToolResult": "Exige assistant após resultado da ferramenta",
+        "compat_requiresThinkingAsText": "Raciocínio como texto",
+        "compat_requiresMistralToolIds": "IDs de ferramenta Mistral"
+      }
+    },
+    "service": {
+      "title": "Serviço do sistema",
+      "description": "Gerenciamento do ciclo de vida do serviço Gateway",
+      "status": "Status do serviço",
+      "running": "Em execução",
+      "stopped": "Parado",
+      "unknown": "Desconhecido",
+      "pid": "PID",
+      "port": "Porta",
+      "installed": "Instalado",
+      "notInstalled": "Não instalado",
+      "installStatus": "Serviço do sistema",
+      "actions": "Ações",
+      "start": "Iniciar",
+      "stop": "Parar",
+      "restart": "Reiniciar",
+      "starting": "Iniciando...",
+      "stopping": "Parando...",
+      "restarting": "Reiniciando...",
+      "install": "Instalar serviço",
+      "uninstall": "Desinstalar serviço",
+      "installing": "Instalando...",
+      "uninstalling": "Desinstalando...",
+      "installHint": "Instale como serviço do sistema para que o Gateway inicie automaticamente no login",
+      "uninstallHint": "Desinstale o serviço do sistema para impedir a inicialização automática do Gateway",
+      "confirmStop": "Tem certeza de que deseja parar o serviço do Gateway? Todas as conexões serão encerradas.",
+      "confirmRestart": "Tem certeza de que deseja reiniciar o serviço do Gateway? A conexão será interrompida brevemente.",
+      "confirmUninstall": "Tem certeza de que deseja desinstalar o serviço do sistema?",
+      "platformUnavailable": "Serviço de plataforma indisponível",
+      "platformUnavailableHint": "Inicie primeiro o Platform Service (pnpm platform). O gerenciamento de serviço precisa dele para executar comandos locais.",
+      "actionSuccess": "{{action}} concluído com sucesso",
+      "actionFailed": "{{action}} falhou",
+      "fetchingStatus": "Buscando status..."
+    },
+    "logs": {
+      "title": "Visualizador de logs",
+      "description": "Veja os logs de execução do Gateway em tempo real",
+      "startFollow": "Começar a acompanhar",
+      "stopFollow": "Parar de acompanhar",
+      "pause": "Pausar",
+      "resume": "Retomar",
+      "clear": "Limpar",
+      "following": "Acompanhando",
+      "paused": "Pausado",
+      "idle": "Ocioso",
+      "noLogs": "Ainda não há logs. Clique em \"Começar a acompanhar\" para ver os logs ao vivo.",
+      "newLogs": "Novos logs ↓",
+      "lineCount": "{{count}} linhas"
+    },
+    "gateway": {
+      "title": "Gateway",
+      "description": "Status de execução do Gateway",
+      "version": "Versão",
+      "port": "Porta",
+      "uptime": "Tempo de atividade",
+      "mode": "Modo",
+      "nodeVersion": "Node.js",
+      "platform": "Plataforma",
+      "refresh": "Atualizar",
+      "notConnected": "Gateway não conectado",
+      "notConnectedHint": "Confirme que o OpenClaw Gateway está em execução",
+      "uptimeFormat": "{{hours}}h {{minutes}}m"
+    },
+    "update": {
+      "title": "Atualizações",
+      "currentVersion": "Versão atual",
+      "channel": "Canal de atualização",
+      "checkUpdate": "Verificar atualizações",
+      "updating": "Atualizando...",
+      "confirmTitle": "Confirmar atualização",
+      "confirmDescription": "O Gateway será reiniciado durante a atualização e a conexão será interrompida brevemente. Continuar?",
+      "resultOk": "Atualização concluída, a versão foi de {{before}} para {{after}}, o Gateway está reiniciando",
+      "resultNoop": "Já está na versão mais recente",
+      "resultError": "Falha na atualização: {{reason}}"
+    },
+    "advanced": {
+      "title": "Avançado",
+      "devMode": "Modo desenvolvedor",
+      "devModeHint": "Ative para mostrar as opções de ferramentas de desenvolvedor"
+    },
+    "developer": {
+      "title": "Ferramentas de desenvolvedor",
+      "gatewayToken": "Token do Gateway",
+      "tokenConfigured": "Configurado",
+      "tokenHint": "Use o CLI `openclaw config get gateway.auth.token` para ver o token completo",
+      "configPath": "Caminho do arquivo de configuração",
+      "rawConfig": "Configuração bruta",
+      "showConfig": "Mostrar",
+      "hideConfig": "Ocultar",
+      "wsUrl": "URL do WebSocket",
+      "connectionStatus": "Status da conexão",
+      "copied": "Copiado"
+    },
+    "about": {
+      "title": "Sobre",
+      "appName": "OpenClaw Office",
+      "tagline": "Monitoramento visual de colaboração multi-agent",
+      "version": "Versão",
+      "docs": "Documentação",
+      "github": "GitHub"
+    },
+    "restartWarning": "O Gateway será reiniciado automaticamente após salvar a configuração, e a conexão será interrompida brevemente",
+    "configConflict": "A configuração foi alterada por outro cliente e recarregada automaticamente"
+  },
+  "viewModels": {
+    "statusLabels": {
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "connecting": "Conectando",
+      "error": "Erro"
+    },
+    "taskStatus": {
+      "active": "Ativa",
+      "paused": "Pausada"
+    },
+    "schedule": {
+      "daily": "Diariamente às {{time}}",
+      "weekly": "Toda {{day}} às {{time}}",
+      "every": "a cada {{minutes}}m",
+      "at": "às {{time}}",
+      "unknown": "desconhecido"
+    },
+    "skillSource": {
+      "builtIn": "integrada",
+      "marketplace": "marketplace"
+    }
+  },
+  "agents": {
+    "title": "Gestão de Agents",
+    "description": "Gerencie a configuração dos Agents, arquivos centrais e ajustes de modelos",
+    "panelTitle": "Agents",
+    "detailDescription": "Workspace e roteamento do agent {{id}}",
+    "configured": "{{count}} configurado(s)",
+    "refresh": "Atualizar",
+    "searchPlaceholder": "Buscar agents...",
+    "noAgents": "Nenhum agent",
+    "noAgentsDesc": "Ainda não há agents configurados",
+    "selectAgent": "Selecione um agent",
+    "selectAgentDesc": "Selecione um agent na lista para ver os detalhes",
+    "defaultBadge": "PADRÃO",
+    "addAgent": "Adicionar Agent",
+    "tabs": {
+      "overview": "Visão geral",
+      "files": "Arquivos",
+      "tools": "Ferramentas",
+      "skills": "Skills",
+      "channels": "Canais",
+      "cronJobs": "Tarefas agendadas"
+    },
+    "overview": {
+      "title": "Informações básicas",
+      "agentId": "ID do Agent",
+      "name": "Nome",
+      "workspace": "Workspace",
+      "isDefault": "Agent padrão",
+      "yes": "Sim",
+      "no": "Não",
+      "modelConfig": "Configuração de modelo",
+      "primaryModel": "Modelo principal",
+      "primaryModelPlaceholder": "Selecione o modelo principal...",
+      "fallbackModels": "Modelos alternativos",
+      "fallbackPlaceholder": "Selecione o modelo alternativo...",
+      "addFallback": "Adicionar alternativo",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "saveSuccess": "Salvo com sucesso",
+      "saveError": "Falha ao salvar",
+      "runtimeHint": "Afeta apenas novas requisições; execuções em andamento continuam usando o modelo atual.",
+      "deleteAgent": "Excluir Agent",
+      "cannotDeleteDefault": "Não é possível excluir o agent padrão"
+    },
+    "files": {
+      "title": "Arquivos centrais",
+      "description": "Persona inicial, identidade e orientações de uso de ferramentas.",
+      "workspace": "Workspace",
+      "noFiles": "Nenhum arquivo",
+      "selectFile": "Selecione um arquivo para ver seu conteúdo",
+      "content": "Conteúdo",
+      "reset": "Redefinir",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "saveSuccess": "Arquivo salvo",
+      "saveError": "Falha ao salvar",
+      "unsavedChanges": "Alterações não salvas",
+      "justNow": "agora mesmo",
+      "hoursAgo": "há {{count}}h",
+      "daysAgo": "há {{count}}d"
+    },
+    "tools": {
+      "title": "Política de ferramentas",
+      "noConfig": "Este agent não tem política de ferramentas configurada",
+      "profile": "Perfil de política",
+      "profileDefault": "Padrão (full)",
+      "profileFull": "Completo",
+      "profileMinimal": "Minimalista",
+      "profileCustom": "Personalizado",
+      "alsoAllow": "Também permitir",
+      "deny": "Negar",
+      "addTool": "Adicionar ferramenta",
+      "removeTool": "Remover",
+      "enabledCount": "{{enabled}}/{{total}} ativadas",
+      "catalogTitle": "Catálogo de ferramentas",
+      "sourceBuiltIn": "Integrada",
+      "sourcePlugin": "Plugin",
+      "sourceWorkspace": "Workspace",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "saveSuccess": "Salvo com sucesso",
+      "saveError": "Falha ao salvar",
+      "saveConflict": "A configuração foi alterada, recarregue e tente novamente",
+      "refresh": "Atualizar",
+      "noTools": "Nenhuma ferramenta disponível",
+      "allowList": "Lista permitida",
+      "denyList": "Lista de bloqueio",
+      "all": "Todas"
+    },
+    "skills": {
+      "title": "Configuração de skills",
+      "noRestriction": "Usando a configuração padrão de skills",
+      "defaultConfig": "Usando a configuração padrão de skills",
+      "allowedSkills": "Skills permitidas",
+      "total": "Total",
+      "enabled": "Ativas",
+      "blocked": "Bloqueadas",
+      "modeAll": "Usar todas as skills",
+      "modeSelected": "Usar apenas skills selecionadas",
+      "modeAllDesc": "Sem restrição, todas as skills disponíveis podem ser usadas",
+      "modeSelectedDesc": "Somente as skills selecionadas são permitidas",
+      "coreProtected": "Skill central, não pode ser desmarcada",
+      "blockedByAllowlist": "Bloqueada pela allowlist",
+      "missingDeps": "Dependências ausentes",
+      "sourceBuiltIn": "Integrada",
+      "sourceMarketplace": "Marketplace",
+      "selectAll": "Selecionar tudo",
+      "deselectAll": "Desmarcar tudo",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "saveSuccess": "Salvo com sucesso",
+      "saveError": "Falha ao salvar",
+      "refresh": "Atualizar"
+    },
+    "restart": {
+      "required": "Configuração salva. É necessário reiniciar o Gateway para que as alterações tenham efeito.",
+      "restartNow": "Reiniciar agora",
+      "restarting": "Reiniciando...",
+      "done": "Gateway reiniciado. A configuração agora está ativa."
+    },
+    "channels": {
+      "title": "Status dos canais",
+      "noBindings": "Nenhum canal configurado",
+      "gatewayInfo": "Aqui é exibido o status dos canais no nível do Gateway. Os vínculos entre canal e Agent são gerenciados no arquivo de configuração.",
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "connecting": "Conectando",
+      "error": "Erro",
+      "configured": "Configurado",
+      "notConfigured": "Não configurado",
+      "refresh": "Atualizar"
+    },
+    "cronJobs": {
+      "title": "Tarefas agendadas",
+      "noCronJobs": "Este agent não tem tarefas agendadas",
+      "addTask": "Nova tarefa agendada",
+      "total": "Total",
+      "enabled": "Ativas",
+      "errors": "Erros",
+      "refresh": "Atualizar",
+      "confirmDelete": "Tem certeza de que deseja excluir esta tarefa agendada?"
+    },
+    "createDialog": {
+      "title": "Adicionar novo Agent",
+      "name": "Nome",
+      "namePlaceholder": "Digite o nome do agent",
+      "nameRequired": "O nome é obrigatório",
+      "workspace": "Caminho do workspace",
+      "workspacePlaceholder": "ex.: ~/.openclaw/workspace-myagent",
+      "workspaceRequired": "O caminho do workspace é obrigatório",
+      "emoji": "Emoji",
+      "emojiPlaceholder": "ex.: 🤖",
+      "cancel": "Cancelar",
+      "create": "Criar",
+      "creating": "Criando..."
+    },
+    "deleteDialog": {
+      "title": "Excluir Agent",
+      "confirm": "Tem certeza de que deseja excluir o agent \"{{name}}\"? Esta ação não pode ser desfeita.",
+      "deleteFiles": "Também excluir os arquivos do workspace",
+      "cancel": "Cancelar",
+      "delete": "Excluir",
+      "deleting": "Excluindo..."
+    }
+  },
+  "skillWorkbench": {
+    "title": "Workbench de skills",
+    "placeholder": "Carregando...",
+    "home": {
+      "title": "Workbench de skills",
+      "subtitle": "Escolha um card de skill existente para mantê-lo, ou clique em \"Criar skill\" para começar uma nova com um assistente conversacional.",
+      "searchPlaceholder": "Buscar por nome, descrição ou slug da skill...",
+      "createTitle": "Criar skill",
+      "createSubtitle": "Gere SKILL.md e um fluxograma por meio de conversa com IA",
+      "openCard": "Abrir",
+      "noDescription": "Sem descrição",
+      "noMatch": "Nenhuma skill corresponde à sua busca"
+    },
+    "create": {
+      "back": "Voltar",
+      "breadcrumb": "Nova skill",
+      "guideTitle": "Comece descrevendo seu cenário",
+      "guideSubtitle": "Explique à IA seu SOP / metodologia / FAQ completo. Quanto mais estruturada a entrada, mais próximo da produção o SKILL.md e o fluxograma gerados ficarão.",
+      "suggestionSopTitle": "Compartilhe um SOP completo",
+      "suggestionSopDesc": "Detalhe cada etapa, ponto de decisão e entrada/saída",
+      "suggestionSopPrompt": "Quero criar uma skill chamada \"XXX\" para o seguinte cenário: ...\nAqui está o SOP completo — gere SKILL.md e FLOWCHART.md conforme ele:\n1. Gatilho: ...\n2. Etapa 1: ... (entrada / ação / saída)\n3. Etapa 2: ...\n4. Ramo de decisão: se ... então ...; caso contrário ...\n5. Definição de concluído: ...",
+      "suggestionMethodTitle": "Compartilhe uma metodologia / framework",
+      "suggestionMethodDesc": "Bom para skills de análise, revisão ou consultoria — forneça o framework e as entregas esperadas",
+      "suggestionMethodPrompt": "Transforme a metodologia abaixo em uma skill:\n- Nome: ...\n- Cenários aplicáveis: ...\n- Princípios centrais: ...\n- Dimensões / checklist: ...\n- Formato de saída: ...\nGere SKILL.md e o fluxograma correspondente.",
+      "suggestionFaqTitle": "Compartilhe pares de FAQ / perguntas e respostas",
+      "suggestionFaqDesc": "Ideal para skills de suporte/vendas — organize como \"pergunta → resposta recomendada\"",
+      "suggestionFaqPrompt": "Quero criar uma skill em formato de FAQ. Perguntas e respostas típicas:\n1. P: ...\n   R: ...\n2. P: ...\n   R: ...\nOrganize isso em um SKILL.md adequado e gere um fluxograma de atendimento.",
+      "tip": "Dica: sinta-se à vontade para colar documentos brutos / SOPs / atas de reunião — a IA vai estruturá-los para você. Após enviar, SKILL.md e FLOWCHART.md serão gravados no diretório da skill do workspace."
+    },
+    "detail": {
+      "back": "Voltar",
+      "copySlug": "Copiar slug",
+      "sidebarToggle": "Painel de chat",
+      "filesTitle": "Arquivos da skill",
+      "flowchartTab": "Fluxograma",
+      "flowchartMissing": "ausente",
+      "noFiles": "Ainda não há outros arquivos para esta skill",
+      "editSkill": "Modificar esta skill",
+      "openChat": "Abrir chat",
+      "closeChat": "Fechar chat",
+      "preview": "Pré-visualizar",
+      "edit": "Editar",
+      "save": "Salvar",
+      "saveAndCommit": "Salvar e commitar",
+      "saving": "Salvando...",
+      "saved": "Salvo",
+      "commitOk": "Commitado {{commit}}",
+      "commitSkippedNoRepo": "Salvo, mas nenhum repositório Git foi encontrado — commit ignorado.",
+      "commitSkippedNothing": "Salvo, sem alterações para commitar.",
+      "commitFailed": "Salvo, mas o commit falhou: {{error}}",
+      "saveFailed": "Falha ao salvar: {{error}}",
+      "frontmatterTitle": "Metadados da skill",
+      "frontmatterEmpty": "Nenhum metadado definido",
+      "bodyTitle": "Descrição da skill"
+    },
+    "toolbar": {
+      "create": "Criar",
+      "browse": "Navegar",
+      "edit": "Editar",
+      "save": "Salvar",
+      "confirmFlow": "Confirmar fluxograma"
+    },
+    "chat": {
+      "inputPlaceholder": "Descreva a skill que você quer criar...",
+      "inputPlaceholderEdit": "Descreva o que você quer alterar...",
+      "emptyStateEdit": "Selecione uma skill e descreva aqui o fluxograma ou as alterações que deseja fazer",
+      "generating": "A IA está gerando o fluxograma, aguarde...",
+      "thinking": "Pensando...",
+      "send": "Enviar",
+      "stop": "Parar",
+      "addAttachment": "Adicionar anexo",
+      "emptyState": "Descreva a skill que você quer criar, e a IA gerará primeiro um fluxograma",
+      "sessionProtectSaved": "Sessão atual salva",
+      "sessionProtectRestored": "Sessão anterior restaurada"
+    },
+    "flowchart": {
+      "preview": "Pré-visualização",
+      "source": "Fonte",
+      "emptyState": "Aguardando a IA gerar o fluxograma...",
+      "emptyHint": "Descreva os requisitos da sua skill no painel de chat e a IA gerará automaticamente um fluxograma Mermaid",
+      "generate": "Gerar fluxograma",
+      "generateHint": "Gere via chat e grave automaticamente em FLOWCHART.md",
+      "generating": "Gerando fluxograma...",
+      "generatingHint": "A IA está gerando o fluxograma Mermaid com base em SKILL.md e o salvará em FLOWCHART.md",
+      "renderError": "Falha ao renderizar o fluxograma",
+      "confirmed": "Fluxo confirmado",
+      "zoomIn": "Aumentar zoom",
+      "zoomOut": "Diminuir zoom",
+      "resetZoom": "Redefinir zoom",
+      "zoomHint": "Mantenha Ctrl/⌘ + rolagem para ampliar"
+    },
+    "browser": {
+      "title": "Diretório de skills",
+      "searchPlaceholder": "Buscar skills...",
+      "noSkills": "Ainda não há skills personalizadas",
+      "noFlowchart": "Esta skill não tem fluxograma",
+      "flowchartLoaded": "Fluxograma carregado para esta skill. Selecione um arquivo à esquerda para ver o conteúdo",
+      "noFlowchartHint": "Clique em editar para gerar um fluxograma para esta skill",
+      "editSkill": "Editar esta skill",
+      "inlineChatHint": "Selecione uma skill acima e então inicie um chat aqui para modificar diretamente o SKILL.md ou FLOWCHART.md.",
+      "generateFlowchart": "Gerar fluxograma",
+      "generating": "Gerando fluxograma...",
+      "loading": "Carregando...",
+      "loadError": "Falha ao carregar"
+    },
+    "status": {
+      "creating": "Criando",
+      "editing": "Editando",
+      "browsing": "Navegando",
+      "currentSkill": "Skill atual",
+      "noSkill": "Nenhuma skill selecionada"
+    }
+  }
+}

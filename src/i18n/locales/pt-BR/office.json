@@ -1,0 +1,104 @@
+{
+  "loading3D": "Carregando cenário 3D...",
+  "zones": {
+    "desk": "Área de postos fixos",
+    "meeting": "Área de reuniões",
+    "hotDesk": "Área de hot desk",
+    "lounge": "Área de descanso"
+  },
+  "livingOffice": {
+    "zones": {
+      "staffFloor": "Estações da equipe",
+      "lounge": "Área de descanso"
+    },
+    "hud": {
+      "gatewayTitle": "Central do Gateway OpenClaw",
+      "gatewaySubtitle": "Receber eventos, distribuir tarefas e coordenar o todo",
+      "wsOnline": "WS online",
+      "wsOffline": "WS offline",
+      "statsTitle": "Métricas de execução",
+      "statsActive": "Ativos",
+      "statsPending": "Pendentes",
+      "statsCron": "Cron",
+      "eventLogTitle": "Registro de eventos",
+      "eventLogTag": "Registro narrativo",
+      "eventLogWaiting": "Aguardando eventos…",
+      "eventLogCount": "{{count}} itens",
+      "tickerTitle": "Narrativa do fluxo de eventos",
+      "tickerTag": "Camada de percepção",
+      "tickerSubtitle": "Compacta eventos do sistema em comportamento organizacional perceptível por segundo",
+      "controlTitle": "Gatilhos de interação",
+      "controlTag": "Controles de pré-visualização",
+      "controlExpand": "Expandir painel de controle",
+      "legendIdle": "Ocioso / normal",
+      "legendBusy": "Ocupado / em execução",
+      "legendBlocked": "Bloqueado / anomalia",
+      "legendHeartbeat": "Heartbeat",
+      "legendCron": "Cron"
+    },
+    "panels": {
+      "gatewayHeader": "OPENCLAW GATEWAY",
+      "busWebSocket": "WebSocket",
+      "busEventSpine": "Espinha de eventos",
+      "busRpcScope": "RPC / escopo",
+      "opsTitle": "Painel de comportamento organizacional",
+      "opsSubtitle": "A cadeia causal importa mais do que a agitação",
+      "opsLive": "Ao vivo",
+      "opsEnabled": "Ativado",
+      "opsDisabled": "Desativado",
+      "opsErrorAgents": "Agents com erro",
+      "opsCollabLinks": "Links de colaboração",
+      "opsAgentToAgent": "Conexão Agent a Agent",
+      "opsSubCapacity": "Capacidade de Sub-Agent",
+      "cronTitle": "Placa de broadcast do Cron",
+      "cronSubtitle": "Tarefas institucionais, sem antropomorfismo",
+      "projectTitle": "Sala de projeto temporário",
+      "projectSubtitle": "Sub-agents só acendem aqui",
+      "projectEmpty": "Nenhuma colaboração temporária",
+      "projectEmptySub": "Espaço de trabalho temporário",
+      "memoryTitle": "Mural de memória compartilhada",
+      "memorySubtitle": "Objetivos / fatos / contexto",
+      "memoryEmpty": "Nenhuma memória compartilhada em tempo real"
+    },
+    "status": {
+      "working": "Processando",
+      "tool": "tool",
+      "collaborating": "Colaborando",
+      "returning": "Retornando resultado",
+      "recovered": "Recuperado"
+    },
+    "demo": {
+      "userTask": "Mensagem do cliente recebida",
+      "collab": "Iniciar colaboração",
+      "cron": "Disparar Cron",
+      "heartbeat": "Disparar Heartbeat",
+      "incident": "Criar bloqueio"
+    },
+    "gateway": {
+      "wsLabel": "WebSocket",
+      "eventBusLabel": "Barramento de eventos",
+      "rpcLabel": "RPC",
+      "healthLabel": "Saúde",
+      "connecting": "Conectando",
+      "ready": "Pronto",
+      "normal": "Normal",
+      "streaming": "Eventos em tempo real",
+      "alert": "Alerta de anomalia",
+      "recovered": "Voltando ao normal"
+    },
+    "fallbackEvents": {
+      "msgArrival": "Mensagem do cliente recebida",
+      "msgArrivalDesc": "Telegram → barramento de eventos do Gateway",
+      "gmDispatch": "Despacho do GM",
+      "gmDispatchDesc": "Roteamento inteligente → melhor Agent",
+      "salesReport": "Relatório de vendas",
+      "salesReportDesc": "Chamada de ferramenta → gerar conclusão analítica",
+      "cronBroadcast": "Broadcast agendado do Cron",
+      "cronBroadcastDesc": "Tarefa periódica → aviso geral",
+      "heartbeat": "Inspeção do Heartbeat",
+      "heartbeatDesc": "Pulso de saúde → sincronizar estado",
+      "subAgentCollab": "Colaboração de Sub-Agent",
+      "subAgentCollabDesc": "Iniciar sub-Agent → execução paralela"
+    }
+  }
+}

@@ -15,6 +15,7 @@ describe("i18n setup", () => {
     for (const ns of expected) {
       expect(i18n.hasResourceBundle("zh", ns)).toBe(true);
       expect(i18n.hasResourceBundle("en", ns)).toBe(true);
+      expect(i18n.hasResourceBundle("pt-BR", ns)).toBe(true);
     }
   });
 
@@ -31,6 +32,13 @@ describe("i18n setup", () => {
     expect(i18n.t("common:empty.noEvents")).toBe("No events yet");
   });
 
+  it("translates common keys in pt-BR", async () => {
+    await i18n.changeLanguage("pt-BR");
+    expect(i18n.t("common:status.connected")).toBe("Conectado");
+    expect(i18n.t("common:actions.send")).toBe("Enviar");
+    expect(i18n.t("common:empty.noEvents")).toBe("Nenhum evento ainda");
+  });
+
   it("supports interpolation", () => {
     expect(i18n.t("common:time.secondsAgo", { count: 5 })).toBe("5秒前");
   });
@@ -40,9 +48,20 @@ describe("i18n setup", () => {
     expect(i18n.t("common:time.secondsAgo", { count: 5 })).toBe("5s ago");
   });
 
+  it("supports interpolation in pt-BR", async () => {
+    await i18n.changeLanguage("pt-BR");
+    expect(i18n.t("common:time.secondsAgo", { count: 5 })).toBe("há 5s");
+  });
+
   it("falls back to zh for unsupported language", async () => {
     await i18n.changeLanguage("ja");
     expect(i18n.t("common:status.connected")).toBe("已连接");
+  });
+
+  it("translates layout namespace in pt-BR", async () => {
+    await i18n.changeLanguage("pt-BR");
+    expect(i18n.t("layout:topbar.console")).toBe("Console");
+    expect(i18n.t("layout:sidebar.searchPlaceholder")).toBe("Buscar Agent...");
   });
 
   it("translates layout namespace", () => {

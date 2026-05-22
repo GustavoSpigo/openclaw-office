@@ -1,0 +1,98 @@
+{
+  "status": {
+    "connecting": "Conectando...",
+    "connected": "Conectado",
+    "reconnecting": "Reconectando",
+    "disconnected": "Desconectado",
+    "error": "Erro de conexão",
+    "active": "Ativo",
+    "paused": "Pausado",
+    "ok": "OK",
+    "failed": "Falhou",
+    "running": "Em execução",
+    "pending": "Pendente",
+    "disabled": "Desativado"
+  },
+  "actions": {
+    "send": "Enviar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "stop": "Parar",
+    "retry": "Tentar novamente",
+    "dismiss": "Dispensar",
+    "save": "Salvar",
+    "delete": "Excluir",
+    "refresh": "Atualizar",
+    "create": "Criar",
+    "edit": "Editar"
+  },
+  "time": {
+    "justNow": "agora mesmo",
+    "secondsAgo": "há {{count}}s",
+    "minutesAgo": "há {{count}}min",
+    "hoursAgo": "há {{count}}h",
+    "running": "executando há {{seconds}}s",
+    "runningMinutes": "executando há {{minutes}}m {{seconds}}s"
+  },
+  "format": {
+    "viaValue": " via {{value}}"
+  },
+  "empty": {
+    "noData": "Nenhum dado ainda",
+    "noCostData": "Nenhum dado de custo",
+    "noActivityData": "Nenhum dado de atividade",
+    "noRelationData": "Nenhum dado de relação entre Agents",
+    "noEvents": "Nenhum evento ainda",
+    "noMatchingAgents": "Nenhum Agent correspondente",
+    "noSubAgents": "Nenhum Sub-Agent",
+    "waitingUsageData": "Sem dados ainda, aguardando dados de usage..."
+  },
+  "agent": {
+    "statusLabels": {
+      "idle": "Ocioso",
+      "thinking": "Pensando",
+      "tool_calling": "Chamando ferramenta",
+      "speaking": "Respondendo",
+      "spawning": "Criando",
+      "error": "Erro",
+      "offline": "Offline"
+    }
+  },
+  "zones": {
+    "desk": "Área de postos fixos",
+    "meeting": "Área de reuniões",
+    "hotDesk": "Área de hot desk",
+    "lounge": "Área de descanso"
+  },
+  "errors": {
+    "notConnected": "Não conectado ao Gateway",
+    "operationFailed": "Operação falhou",
+    "operationTimeout": "Tempo limite da operação excedido, o Gateway talvez ainda não suporte isso",
+    "adapterNotInitialized": "Adaptador do Gateway não inicializado",
+    "unknownError": "Erro desconhecido",
+    "errorOccurred": "Ocorreu um erro"
+  },
+  "events": {
+    "startRunning": "Iniciando execução",
+    "thinking": "Pensando",
+    "runEnded": "Execução encerrada",
+    "fallback": "Tratamento alternativo",
+    "toolCall": "Chamando ferramenta: {{name}}",
+    "toolDone": "Ferramenta concluída: {{name}}",
+    "errorPrefix": "Erro: {{message}}",
+    "unknownStream": "Fluxo desconhecido: {{stream}}",
+    "lifecycleUnknown": "Ciclo de vida: {{phase}}",
+    "commandOutput": "Saída do comando",
+    "commandExited": "Comando encerrado (código: {{code}})",
+    "itemStart": "Início: {{title}}",
+    "itemDone": "Concluído: {{title}}",
+    "itemFailed": "Falhou: {{title}}",
+    "itemUpdate": "Atualização de tarefa",
+    "plan": "Plano: {{title}}",
+    "approvalRequested": "Aguardando aprovação: {{title}}",
+    "approvalResolved": "Aprovação concluída: {{title}}",
+    "patch": "Alteração de arquivo ({{total}} itens)",
+    "compaction": "Compactação de contexto"
+  }
+}

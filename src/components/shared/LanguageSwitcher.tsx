@@ -1,14 +1,28 @@
 import { useTranslation } from "react-i18next";
 
+const LANGUAGE_ORDER = ["zh", "en", "pt-BR"] as const;
+
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation("layout");
 
-  const isZh = i18n.language?.startsWith("zh");
-  const label = isZh ? "中文" : "EN";
-  const ariaLabel = isZh ? t("topbar.language.switchToEn") : t("topbar.language.switchToZh");
+  const currentLanguage = i18n.language?.startsWith("zh")
+    ? "zh"
+    : i18n.language?.startsWith("pt")
+      ? "pt-BR"
+      : "en";
+  const currentIndex = LANGUAGE_ORDER.indexOf(currentLanguage);
+  const nextLanguage = LANGUAGE_ORDER[(currentIndex + 1) % LANGUAGE_ORDER.length];
+
+  const label = currentLanguage === "zh" ? "中文" : currentLanguage === "en" ? "EN" : "PT-BR";
+  const ariaLabel =
+    nextLanguage === "en"
+      ? t("topbar.language.switchToEn")
+      : nextLanguage === "zh"
+        ? t("topbar.language.switchToZh")
+        : t("topbar.language.switchToPtBr");
 
   const handleSwitch = () => {
-    i18n.changeLanguage(isZh ? "en" : "zh");
+    i18n.changeLanguage(nextLanguage);
   };
 
   return (

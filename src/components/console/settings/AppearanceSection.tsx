@@ -14,6 +14,7 @@ const THEME_OPTIONS: Array<{ value: ThemePreference; icon: typeof Sun; labelKey:
 const LANG_OPTIONS = [
   { value: "zh", labelKey: "settings.appearance.langZh" },
   { value: "en", labelKey: "settings.appearance.langEn" },
+  { value: "pt-BR", labelKey: "settings.appearance.langPtBr" },
 ];
 
 function resolveSystemTheme(): "light" | "dark" {

@@ -1,0 +1,146 @@
+{
+  "thinking": {
+    "title": "Processo de pensamento",
+    "expand": "Expandir pensamento",
+    "collapse": "Recolher pensamento"
+  },
+  "connection": {
+    "disconnected": "Conexão perdida, reconectando...",
+    "reconnecting": "Reconectando...",
+    "failed": "Não foi possível conectar ao Gateway",
+    "reconnect": "Reconectar",
+    "retry": "Reconectar"
+  },
+  "dock": {
+    "collapseDock": "Recolher chat",
+    "expandDock": "Expandir chat",
+    "attachmentWip": "Anexo (em desenvolvimento)",
+    "placeholder": "Digite uma mensagem... (Enter envia, Shift+Enter quebra linha)",
+    "startNewChat": "Iniciar uma nova conversa",
+    "thinkingStatus": "Pensando..."
+  },
+  "agentSelector": {
+    "defaultLabel": "Agent"
+  },
+  "dialog": {
+    "sendMessage": "Enviar mensagem",
+    "killConfirm": "Confirmar encerramento",
+    "inputPlaceholder": "Digite um comando...",
+    "killWarning": "Tem certeza de que deseja encerrar a execução atual de <strong>{{name}}</strong>? Esta ação não pode ser desfeita.",
+    "kill": "Encerrar"
+  },
+  "chatDialog": {
+    "loadingHistory": "Carregando histórico de mensagens...",
+    "scrollToBottom": "Rolar para o fim"
+  },
+  "page": {
+    "description": "Área de conversa do operador, com contexto de sessão e atualizações de transcrição em tempo real.",
+    "emptyTitle": "Comece uma conversa",
+    "emptyDescription": "Selecione uma sessão ou digite uma mensagem diretamente para conversar com o Agent OpenClaw selecionado.",
+    "export": "Exportar",
+    "focusOn": "Modo foco",
+    "focusOff": "Sair do foco",
+    "pinned": "Fixado",
+    "addAttachment": "Adicionar anexo",
+    "removeAttachment": "Remover anexo",
+    "clearAttachments": "Limpar anexos",
+    "sessionsTitle": "Sessões",
+    "sessionsDescription": "Crie uma conversa aqui ou volte ao contexto mais recente para continuar.",
+    "sessionHistory": "Histórico recente",
+    "sessionEmpty": "Ainda não há sessões",
+    "newSessionPrimary": "Nova sessão",
+    "chatWith": "Conversar com {{agent}}",
+    "conversationTitle": "Conversa atual",
+    "conversationSubtitle": "Veja transcrições ao vivo, atividades de ferramentas e respostas Markdown mais amigáveis nesta sessão.",
+    "sessionMeta": "{{time}} · {{detail}}",
+    "scrollToLatest": "Ir para o mais recente"
+  },
+  "message": {
+    "assistant": "Assistente",
+    "hideDetails": "Recolher",
+    "pin": "Fixar",
+    "pinned": "Fixado",
+    "result": "Resultado",
+    "toolArgs": "Parâmetros",
+    "toolCall": "Chamada de ferramenta",
+    "you": "Você",
+    "viewDetails": "Expandir"
+  },
+  "toolStatus": {
+    "error": "Falha",
+    "pending": "Pendente",
+    "running": "Executando",
+    "done": "Concluído"
+  },
+  "toolActivity": {
+    "calling": "Chamando a ferramenta `{{name}}`",
+    "finished": "Ferramenta `{{name}}` concluída"
+  },
+  "state": {
+    "enabled": "Ativado",
+    "disabled": "Desativado"
+  },
+  "sessionSwitcher": {
+    "noSessions": "Sem outras sessões",
+    "newSession": "Nova sessão",
+    "newSessionWith": "Nova sessão com {{agent}}",
+    "newSessionTooltip": "Nova conversa",
+    "relativeNow": "agora mesmo",
+    "relativeMinutes": "há {{count}} minutos",
+    "relativeHours": "há {{count}} horas",
+    "relativeDays": "há {{count}} dias",
+    "messageCount": "{{count}} mensagens"
+  },
+  "slash": {
+    "helpTitle": "Comandos disponíveis",
+    "commands": {
+      "new": "Criar uma sessão nova",
+      "reset": "Redefinir a sessão atual",
+      "compact": "Compactar o contexto da sessão atual",
+      "stop": "Parar a execução atual",
+      "clear": "Limpar a transcrição local",
+      "focus": "Alternar modo de foco",
+      "export": "Exportar a transcrição em Markdown",
+      "help": "Mostrar todos os comandos com barra",
+      "agents": "Listar Agents disponíveis",
+      "model": "Ver ou definir o modelo da sessão",
+      "think": "Ver ou definir o nível de raciocínio",
+      "verbose": "Ver ou definir o nível de verbosidade",
+      "fast": "Ver ou definir o modo rápido"
+    },
+    "feedback": {
+      "newSession": "Sessão criada.",
+      "reset": "A sessão foi redefinida.",
+      "stop": "A execução atual foi parada.",
+      "focusEnabled": "Modo de foco ativado.",
+      "focusDisabled": "Modo de foco desativado.",
+      "exported": "A transcrição foi exportada em Markdown.",
+      "exportUnavailable": "Este ambiente não suporta exportação da transcrição.",
+      "availableAgents": "Agents disponíveis",
+      "agentsLoadFailed": "Falha ao carregar Agents: {{error}}",
+      "currentModel": "Modelo atual: `{{model}}`{{providerSuffix}}",
+      "modelSet": "Modelo definido como `{{model}}`.",
+      "modelSetFailed": "Falha ao definir o modelo: {{error}}",
+      "currentThinking": "Nível de raciocínio atual: {{level}}.",
+      "thinkingSet": "Nível de raciocínio definido como `{{level}}`.",
+      "thinkingSetFailed": "Falha ao definir o nível de raciocínio: {{error}}",
+      "currentVerbose": "Verbosity atual: `{{level}}`.",
+      "verboseSet": "Verbosity definida como `{{level}}`.",
+      "verboseSetFailed": "Falha ao definir a verbosity: {{error}}",
+      "fastStatus": "O modo rápido está{{enabled}}.",
+      "fastSet": "O modo rápido foi{{enabled}}.",
+      "fastSetFailed": "Falha ao definir o modo rápido: {{error}}",
+      "compactSuccess": "O contexto da sessão foi compactado.",
+      "compactFailed": "Falha ao compactar o contexto da sessão: {{error}}"
+    }
+  },
+  "contextMenu": {
+    "pause": "Pausar",
+    "resume": "Retomar",
+    "notSupported": "Ainda não suportado",
+    "kill": "Encerrar",
+    "sendMessage": "Enviar mensagem",
+    "viewDetail": "Ver detalhes",
+    "operatorRequired": "Permissão de operador necessária"
+  }
+}

@@ -7,6 +7,12 @@ import enConsole from "./locales/en/console.json";
 import enLayout from "./locales/en/layout.json";
 import enOffice from "./locales/en/office.json";
 import enPanels from "./locales/en/panels.json";
+import ptBrChat from "./locales/pt-BR/chat.json";
+import ptBrCommon from "./locales/pt-BR/common.json";
+import ptBrConsole from "./locales/pt-BR/console.json";
+import ptBrLayout from "./locales/pt-BR/layout.json";
+import ptBrOffice from "./locales/pt-BR/office.json";
+import ptBrPanels from "./locales/pt-BR/panels.json";
 import zhChat from "./locales/zh/chat.json";
 import zhCommon from "./locales/zh/common.json";
 import zhConsole from "./locales/zh/console.json";
@@ -14,7 +20,7 @@ import zhLayout from "./locales/zh/layout.json";
 import zhOffice from "./locales/zh/office.json";
 import zhPanels from "./locales/zh/panels.json";
 
-export const supportedLngs = ["zh", "en"] as const;
+export const supportedLngs = ["zh", "en", "pt-BR"] as const;
 export type SupportedLng = (typeof supportedLngs)[number];
 
 export const namespaces = ["common", "layout", "office", "panels", "chat", "console"] as const;
@@ -39,6 +45,14 @@ i18n
         panels: enPanels,
         chat: enChat,
         console: enConsole,
+      },
+      "pt-BR": {
+        common: ptBrCommon,
+        layout: ptBrLayout,
+        office: ptBrOffice,
+        panels: ptBrPanels,
+        chat: ptBrChat,
+        console: ptBrConsole,
       },
     },
     supportedLngs: [...supportedLngs],

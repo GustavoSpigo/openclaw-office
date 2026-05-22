@@ -25,7 +25,8 @@
     },
     "language": {
       "switchToEn": "切换到英文",
-      "switchToZh": "切换到中文"
+      "switchToZh": "切换到中文",
+      "switchToPtBr": "切换到葡萄牙语（巴西）"
     }
   },
   "sidebar": {
