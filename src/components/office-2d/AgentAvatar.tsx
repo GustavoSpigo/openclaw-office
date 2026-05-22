@@ -366,8 +366,24 @@ function AvatarFace({ data, size }: { data: SvgAvatarData; size: number }) {
       {/* Hair */}
       <HairSvg style={data.hairStyle} color={data.hairColor} s={s} faceRx={faceRx} />
 
+      {/* Straw hat overlay (One Piece style) */}
+      <StrawHatSvg s={s} faceRx={faceRx} />
+
       {/* Eyes */}
       <EyesSvg style={data.eyeStyle} s={s} />
+    </g>
+  );
+}
+
+function StrawHatSvg({ s, faceRx }: { s: number; faceRx: number }) {
+  return (
+    <g transform={`translate(0, ${-s * 0.9})`}>
+      {/* brim */}
+      <ellipse cx={0} cy={3} rx={faceRx * 1.15} ry={s * 0.28} fill="#f6d76f" stroke="#d4a84e" strokeWidth={0.8} />
+      {/* top */}
+      <ellipse cx={0} cy={-6} rx={faceRx * 0.65} ry={s * 0.35} fill="#f6d76f" stroke="#d4a84e" strokeWidth={0.8} />
+      {/* red ribbon */}
+      <rect x={-faceRx * 0.5} y={-9} width={faceRx} height={6} rx={2} fill="#dc2626" />
     </g>
   );
 }

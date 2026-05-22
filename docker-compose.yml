@@ -2,9 +2,9 @@ services:
   openclaw-office:
     image: ccr.ccs.tencentyun.com/openclaw/openclaw-office:latest
     # Uncomment the lines below to build locally instead of pulling from registry:
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: openclaw-office
     restart: unless-stopped
     ports:
@@ -17,8 +17,9 @@ services:
       PORT: "5180"
       HOST: "0.0.0.0"
     # Mount a local openclaw config as an alternative to OPENCLAW_GATEWAY_TOKEN
-    # volumes:
-    #   - "${HOME}/.openclaw/openclaw.json:/home/openclaw/.openclaw/openclaw.json:ro"
+    volumes:
+      - "${HOME}/.openclaw/openclaw.json:/home/openclaw/.openclaw/openclaw.json:ro"
+      - openclaw_office_cache:/home/openclaw/.openclaw/office-cache
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:5180/"]
       interval: 30s
@@ -28,3 +29,6 @@ services:
     # Allow container to reach host services (e.g. Gateway on localhost)
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+volumes:
+  openclaw_office_cache:

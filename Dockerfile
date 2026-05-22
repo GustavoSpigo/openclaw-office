@@ -8,8 +8,8 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /app
 
-# Copy manifests first to leverage layer cache
-COPY package.json pnpm-lock.yaml ./
+# Copy manifests/config first to leverage layer cache
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install ALL dependencies (including dev) for building
 RUN pnpm install --frozen-lockfile
@@ -34,6 +34,10 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/bin ./bin
 COPY --from=builder /app/package.json ./package.json
+
+# Ensure runtime cache/config dirs are writable by non-root user
+RUN mkdir -p /home/openclaw/.openclaw/office-cache \
+  && chown -R openclaw:openclaw /home/openclaw/.openclaw
 
 # Install only the Node built-in dependencies needed (no extra npm packages needed
 # by bin/openclaw-office.js — it only uses node:http, node:fs, node:path, node:os)

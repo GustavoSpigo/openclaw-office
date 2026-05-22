@@ -116,36 +116,40 @@ export function FloorPlan() {
           <filter id="building-shadow" x="-3%" y="-3%" width="106%" height="106%">
             <feDropShadow dx="0" dy="3" stdDeviation="6" floodOpacity={isDark ? 0.5 : 0.12} />
           </filter>
-          {/* Subtle grid pattern for corridor floor */}
-          <pattern id="corridor-tiles" width="28" height="28" patternUnits="userSpaceOnUse">
-            <rect width="28" height="28" fill={colors.corridor} />
-            <rect
-              x="0.5"
-              y="0.5"
-              width="27"
-              height="27"
-              fill="none"
-              stroke={isDark ? "#1f2937" : "#d5dbe3"}
-              strokeWidth="0.3"
-              rx="1"
-            />
+          {/* Wood plank pattern to give a ship deck look */}
+          <pattern id="wood-planks" width="40" height="12" patternUnits="userSpaceOnUse">
+            <rect width="40" height="12" fill={isDark ? "#3b2f23" : "#e7c79a"} />
+            <line x1="0" y1="1" x2="40" y2="1" stroke={isDark ? "#2a1f16" : "#caa16a"} strokeWidth="0.6" opacity="0.55" />
+            <line x1="0" y1="6" x2="40" y2="6" stroke={isDark ? "#2a1f16" : "#caa16a"} strokeWidth="0.5" opacity="0.35" />
+            <line x1="0" y1="11" x2="40" y2="11" stroke={isDark ? "#2a1f16" : "#caa16a"} strokeWidth="0.6" opacity="0.4" />
           </pattern>
-          {/* Subtle carpet texture for lounge */}
-          <pattern id="lounge-carpet" width="6" height="6" patternUnits="userSpaceOnUse">
-            <rect width="6" height="6" fill={colors.lounge} />
-            <circle cx="3" cy="3" r="0.5" fill={isDark ? "#2d2540" : "#e5e0ed"} opacity="0.4" />
+          {/* Sail / stripes accent for lounge wall */}
+          <pattern id="sail-stripes" width="12" height="12" patternUnits="userSpaceOnUse">
+            <rect width="12" height="12" fill={isDark ? "#0f172a" : "#f8fafc"} />
+            <rect width="12" height="6" fill={isDark ? "#0b1220" : "#eef2ff"} opacity="0.06" />
           </pattern>
+          {/* Mast vertical wood texture */}
+          <pattern id="mast-wood" width="6" height="12" patternUnits="userSpaceOnUse">
+            <rect width="6" height="12" fill={isDark ? "#5a3e2b" : "#a97450"} />
+            <line x1="1" y1="0" x2="1" y2="12" stroke={isDark ? "#3b2f23" : "#8b5e3b"} strokeWidth="0.6" opacity="0.6" />
+            <line x1="4" y1="0" x2="4" y2="12" stroke={isDark ? "#3b2f23" : "#8b5e3b"} strokeWidth="0.4" opacity="0.35" />
+          </pattern>
+          {/* Desaturate filter for lounge (removes color) */}
+          <filter id="desaturate">
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
         </defs>
 
         {/* ── Layer 0: Building shell (outer wall) ── */}
+        {/* Ship hull / deck background */}
         <rect
           x={OFFICE.x}
           y={OFFICE.y}
           width={OFFICE.width}
           height={OFFICE.height}
           rx={OFFICE.cornerRadius}
-          fill={colors.corridor}
-          stroke={colors.wall}
+          fill="url(#wood-planks)"
+          stroke={isDark ? "#3b2f23" : "#7b5e3b"}
           strokeWidth={OFFICE.wallThickness}
           filter="url(#building-shadow)"
         />
@@ -162,7 +166,8 @@ export function FloorPlan() {
             width={zone.width}
             height={zone.height}
             fill={
-              key === "lounge" ? "url(#lounge-carpet)" : colors[key as keyof typeof ZONE_COLORS]
+              // append '00' to hex color to make the zone fully transparent
+              (colors[key as keyof typeof ZONE_COLORS] || "#000") + "00"
             }
           />
         ))}
@@ -229,12 +234,14 @@ export function FloorPlan() {
         <HotDeskZoneFurniture slots={hotDeskSlots} agents={hotDeskAgents} />
 
         {/* ── Layer 5: Furniture – Lounge zone (incl. reception + entrance) ── */}
-        <LoungeDecor isDark={isDark} />
+        <g filter="url(#desaturate)">
+          <LoungeDecor isDark={isDark} />
 
-        {/* ── Layer 5a: Lounge idle agents ── */}
-        {loungeAgents.map((agent) => (
-          <AgentAvatar key={`lounge-${agent.id}`} agent={agent} />
-        ))}
+          {/* ── Layer 5a: Lounge idle agents ── */}
+          {loungeAgents.map((agent) => (
+            <AgentAvatar key={`lounge-${agent.id}`} agent={agent} />
+          ))}
+        </g>
 
         {/* ── Layer 5b: Main entrance door on outer wall ── */}
         <EntranceDoor isDark={isDark} />
@@ -290,9 +297,9 @@ function CorridorFloor({ isDark }: { isDark: boolean }) {
   return (
     <g>
       {/* Horizontal corridor */}
-      <rect x={hCorrX} y={hCorrY} width={OFFICE.width} height={cw} fill="url(#corridor-tiles)" />
+      <rect x={hCorrX} y={hCorrY} width={OFFICE.width} height={cw} fill="url(#wood-planks)" />
       {/* Vertical corridor */}
-      <rect x={vCorrX} y={vCorrY} width={cw} height={OFFICE.height} fill="url(#corridor-tiles)" />
+      <rect x={vCorrX} y={vCorrY} width={cw} height={OFFICE.height} fill="url(#wood-planks)" />
       {/* Corridor center guide lines */}
       <line
         x1={hCorrX}
@@ -527,17 +534,20 @@ function LoungeDecor({ isDark }: { isDark: boolean }) {
   const deskColor = isDark ? "#475569" : "#8494a7";
   const deskTop = isDark ? "#64748b" : "#a5b4c8";
   const logoTextColor = isDark ? "#94a3b8" : "#ffffff";
-  const logoBg = isDark ? "#1e293b" : "#3b4f6b";
+  const logoBg = isDark ? "#0b1220" : "#23405a";
 
   // Logo backdrop wall — centered horizontally, at ~55% from top
   const bgWallW = 200;
   const bgWallH = 36;
   const bgWallY = lz.y + lz.height * 0.52;
 
-  // Reception desk — arc in front of logo wall
-  const deskW = 160;
-  const deskH = 24;
-  const deskY = bgWallY + bgWallH + 14;
+  // (old reception desk removed; decorations placed instead)
+  // Mast & figurehead positions
+  const mastX = lz.x + lz.width - 80;
+  const mastTop = lz.y + 24;
+  const mastBase = lz.y + lz.height - 12;
+  const figureheadX = OFFICE.x + 14;
+  const figureheadY = OFFICE.y + OFFICE.height / 2;
 
   return (
     <g>
@@ -567,45 +577,103 @@ function LoungeDecor({ isDark }: { isDark: boolean }) {
         rx={1.5}
         fill={isDark ? "#64748b" : "#7a9bc0"}
       />
-      {/* "OpenClaw" logo text */}
+      {/* Small Jolly Roger emblem (skull + crossbones + straw hat) */}
+      <g transform={`translate(${cx - bgWallW / 2 + 28}, ${bgWallY + bgWallH / 2 + 2})`}>
+        {/* Crossbones behind skull */}
+        <g>
+          <g transform="rotate(25)">
+            <ellipse cx={0} cy={0} rx={12} ry={3.4} fill="#fff" />
+            <circle cx={-12} cy={0} r={3.6} fill="#fff" />
+            <circle cx={12} cy={0} r={3.6} fill="#fff" />
+          </g>
+          <g transform="rotate(-25)">
+            <ellipse cx={0} cy={0} rx={12} ry={3.4} fill="#fff" />
+            <circle cx={-12} cy={0} r={3.6} fill="#fff" />
+            <circle cx={12} cy={0} r={3.6} fill="#fff" />
+          </g>
+        </g>
+        <g transform="translate(0,-1)">
+          <ellipse cx={0} cy={0} rx={10} ry={9} fill="#fff" stroke={isDark ? "#111827" : "#111"} strokeWidth={0.8} />
+          <circle cx={-3} cy={-1} r={1.8} fill="#111" />
+          <circle cx={3} cy={-1} r={1.8} fill="#111" />
+          <rect x={-4.5} y={6} width={9} height={2} rx={1} fill="#111" />
+          {/* Straw hat */}
+          <ellipse cx={0} cy={-9} rx={12} ry={3.8} fill="#f6d76f" stroke="#d4a84e" />
+          <rect x={-10} y={-11.2} width={20} height={4} rx={2} fill="#dc2626" />
+        </g>
+      </g>
+
+      {/* "Going Merry" logo text */}
       <text
         x={cx}
-        y={bgWallY + bgWallH / 2 + 5}
+        y={bgWallY + bgWallH / 2 + 6}
         textAnchor="middle"
         fill={logoTextColor}
         fontSize={14}
         fontWeight={700}
         fontFamily="system-ui, sans-serif"
-        letterSpacing="0.12em"
+        letterSpacing="0.08em"
       >
-        OpenClaw
+        Going Merry
       </text>
 
-      {/* ── Reception desk (rounded front) ── */}
-      <rect
-        x={cx - deskW / 2}
-        y={deskY}
-        width={deskW}
-        height={deskH}
-        rx={12}
-        fill={deskColor}
-        stroke={wallColor}
-        strokeWidth={1}
-      />
-      {/* Desk surface highlight */}
-      <rect
-        x={cx - deskW / 2 + 4}
-        y={deskY + 3}
-        width={deskW - 8}
-        height={deskH - 6}
-        rx={9}
-        fill={deskTop}
-        opacity={0.5}
-      />
+      {/* ── Ship wheel / helm near the logo ── */}
+      <g transform={`translate(${cx}, ${bgWallY - 8})`}>
+        <circle r={20} fill={deskColor} stroke={wallColor} strokeWidth={1} />
+        <circle r={9} fill={deskTop} />
+        {Array.from({ length: 8 }).map((_, i) => {
+          const ang = (Math.PI * 2 * i) / 8;
+          const x1 = Math.cos(ang) * 10;
+          const y1 = Math.sin(ang) * 10;
+          const x2 = Math.cos(ang) * 18;
+          const y2 = Math.sin(ang) * 18;
+          return (
+            <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke={wallColor} strokeWidth={2} strokeLinecap="round" />
+          );
+        })}
+      </g>
+
+      {/* ── Mast and Jolly Roger flag ── */}
+      <g>
+        <rect x={mastX - 6} y={mastTop} width={12} height={mastBase - mastTop} rx={6} fill="url(#mast-wood)" />
+        {/* crow's nest */}
+        <rect x={mastX - 18} y={mastTop + 36} width={36} height={10} rx={3} fill={deskColor} opacity={0.95} />
+        {/* flag */}
+        <g transform={`translate(${mastX + 12}, ${mastTop + 44}) rotate(6)`}>
+          <rect x={0} y={0} width={68} height={44} rx={4} fill="#000" />
+          <g transform="translate(34,22)">
+            <g transform="rotate(22)">
+              <ellipse cx={0} cy={0} rx={18} ry={4} fill="#fff" />
+              <circle cx={-18} cy={0} r={4} fill="#fff" />
+              <circle cx={18} cy={0} r={4} fill="#fff" />
+            </g>
+            <g transform="rotate(-22)">
+              <ellipse cx={0} cy={0} rx={18} ry={4} fill="#fff" />
+              <circle cx={-18} cy={0} r={4} fill="#fff" />
+              <circle cx={18} cy={0} r={4} fill="#fff" />
+            </g>
+            <circle r={10} fill="#fff" stroke="#000" strokeWidth={0.8} />
+            <circle cx={-3} cy={-1} r={1.6} fill="#000" />
+            <circle cx={3} cy={-1} r={1.6} fill="#000" />
+            <rect x={-5} y={7} width={10} height={2} rx={1} fill="#000" />
+            <ellipse cx={0} cy={-10} rx={12} ry={3.5} fill="#f6d76f" stroke="#d4a84e" />
+            <rect x={-8} y={-11.5} width={16} height={4} rx={2} fill="#dc2626" />
+          </g>
+        </g>
+      </g>
 
       {/* Decorative plants flanking reception */}
       <Plant x={cx - bgWallW / 2 - 30} y={bgWallY + bgWallH / 2} />
       <Plant x={cx + bgWallW / 2 + 30} y={bgWallY + bgWallH / 2} />
+
+      {/* Figurehead at bow (Going Merry style) */}
+      <g transform={`translate(${figureheadX}, ${figureheadY})`}>
+        <ellipse cx={0} cy={0} rx={18} ry={14} fill="#fff" stroke={isDark ? "#c0b0a0" : "#b0937d"} strokeWidth={1} />
+        <circle cx={-6} cy={-2} r={2} fill="#111" />
+        <circle cx={6} cy={-2} r={2} fill="#111" />
+        <path d="M -8 6 Q 0 12 8 6" stroke={isDark ? "#8b6f5b" : "#8b6f5b"} fill="none" strokeWidth={1.2} />
+        <rect x={-10} y={12} width={20} height={6} rx={3} fill="#dc2626" />
+      </g>
 
       {/* Side plants near entrance */}
       <Plant x={lz.x + 40} y={lz.y + lz.height - 50} />
@@ -667,18 +735,18 @@ function EntranceDoor({ isDark }: { isDark: boolean }) {
         fill={matColor}
         opacity={0.5}
       />
-      {/* "ENTRANCE" label outside */}
+      {/* "WELCOME ABOARD" label outside */}
       <text
         x={doorCX}
         y={doorY + 14}
         textAnchor="middle"
         fill={textColor}
         fontSize={9}
-        fontWeight={600}
+        fontWeight={700}
         fontFamily="system-ui, sans-serif"
-        letterSpacing="0.15em"
+        letterSpacing="0.12em"
       >
-        ENTRANCE
+        WELCOME ABOARD
       </text>
     </g>
   );
